@@ -1,0 +1,13 @@
+
+.avalibalSlots:hover{
+    
+    background-color: transparent;
+  }
+  .avalibalSlotsRed:hover{
+    color: red;
+    cursor: not-allowed;
+   
+  }
+  .avalibalSlotsBlue:hover{
+    text-decoration: double;
+  }
