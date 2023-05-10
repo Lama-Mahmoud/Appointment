@@ -35,3 +35,11 @@
     border: none;
 
 }
+
+.not-reserved:focus{
+    outline: none;
+}
+
+.reserved:focus{
+    outline: none;
+}

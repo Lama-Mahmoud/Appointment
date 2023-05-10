@@ -2,6 +2,9 @@
     --primary-clr: #C7DBFF;
     --secondary-clr: #2F6FB7;
     }
+    span{
+        color: #2F6FB7;
+    }
     * {
       margin: 0;
       padding: 0;
@@ -23,12 +26,13 @@
     i, .date{
       color: var(--secondary-clr);
     }
-    .container {
+    .container-fluid {
       width: 100%;
       color: #fff;
       display: flex;
       justify-content: space-around;
       border-radius: 10px;
+      margin: 0;
       background-color: #ffffff;
     }
     .left {
@@ -59,7 +63,7 @@
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-around;
       font-size: 1.2rem;
       font-weight: 500;
       text-transform: capitalize;
@@ -114,7 +118,7 @@
       margin-top: 0.3%;
       color: #2F6FB7;
     }
-    .container .right {
+    .container-fluid .right {
       position: relative;
       width: 45%;
       display: flex;
@@ -123,7 +127,7 @@
       padding-top: 5%;
     }
   
-    .container .right .appointment {
+    .container-fluid .right .appointment {
       position: relative;
       color: #2F6FB7;
       padding-top: 15%;
@@ -132,7 +136,7 @@
     }
     
   
-    .container .right .times {
+    .container-fluid .right .times {
       position: relative;
       width: 100%;
       display: flex;
@@ -193,7 +197,7 @@
   }
   
   
-  .container .right .times {
+  .container-fluid .right .times {
     position: relative;
     width: 100%;
     display: flex;
@@ -243,21 +247,18 @@
         align-items: flex-start;
         justify-content: flex-start;
       }
-      .container {
+      .container-fluid {
         height: 95vh;
         flex-direction: column;
         border-radius: 0;
       }
-      .container .left {
-        width: 100%;
+      .container-fluid .left {
+        width: 97%;
         padding-top: 5px;
       }
-      .container .right {
+      .container-fluid .right {
         width: 100%;
         padding: 0;
-      }
-      .calendar .month {
-        height: 75px;
       }
       .calendar .weekdays div{
         height: 5vh;
@@ -271,14 +272,24 @@
         height: 6vh;
         padding:2%;
       }
-      .container .right  {
+      .container-fluid .right  {
         align-items: flex-start;
         margin-top: 2%;
       }
-      .container .right .appointment{
+      .container-fluid .right .appointment{
         position: relative;
         left: 1%;
         padding:3%;
+      }
+      .time{
+        width:20%;
+        margin-top: 1%;
+        margin-right: 1%;
+        margin-left: 1%;
+        margin-bottom: 0%;
+      }
+      .month{
+        height: 6vh;
       }
     }
   

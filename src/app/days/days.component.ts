@@ -8,5 +8,9 @@ import { jsonaday } from '../model/jsonaday.intrface';
 })
 export class DaysComponent {
   @Input() day!:jsonaday;
-
+  elements=document.getElementsByClassName("dayCSS")
+  
+  showSlots(){
+    
+  }
 }

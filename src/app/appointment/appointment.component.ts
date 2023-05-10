@@ -1,7 +1,8 @@
-import { Component, Input, OnInit, asNativeElements } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, asNativeElements } from '@angular/core';
 import { jsonaday } from '../model/jsonaday.intrface';
 import { DentistryappintmentDayList } from '../model/appointmentDay';
 import { ITime } from '../model/time.interface';
+import { DaysComponent } from '../days/days.component';
 
 @Component({
   selector: 'app-appointment',
@@ -10,16 +11,15 @@ import { ITime } from '../model/time.interface';
 })
 export class AppointmentComponent implements OnInit{
 
-  
-DentistryappintmentDayList= DentistryappintmentDayList;
-days: number[]; 
-Pdays :number[];
-Ndays :number[];
-dayList:Array<jsonaday>;
-counterday!:Array<ITime>;
-today: Date = new Date();
-month:number=this.today.getMonth();
-year:number=this.today.getFullYear();
+  DentistryappintmentDayList= DentistryappintmentDayList;
+  days: number[]; 
+  Pdays :number[];
+  Ndays :number[];
+  dayList:Array<jsonaday>;
+  counterday!:Array<ITime>;
+  today: Date = new Date();
+  month:number=this.today.getMonth();
+  year:number=this.today.getFullYear();
 
 
  months = [
@@ -38,12 +38,13 @@ year:number=this.today.getFullYear();
 ];
 FullDate:string=this.months[this.month]+" "+this.year;
 
- constructor(){
+ constructor(private ref :ElementRef){
   this.days=[];
   this.Pdays=[];
   this.Ndays=[];
   this.FullDate;
   this.dayList=[];
+
  }
 
  ngOnInit(): void {
@@ -51,7 +52,7 @@ FullDate:string=this.months[this.month]+" "+this.year;
    this.prevMonth();
    this.nextMonth();
    this.Todaydate();
-   
+   console.log(document.getElementsByClassName("active"));
  }
 
  
@@ -61,7 +62,7 @@ FullDate:string=this.months[this.month]+" "+this.year;
   console.log(this.today);//today date
   console.log(this.year);
   console.log(this.month);
-  console.log(DentistryappintmentDayList[0].map);
+  console.log("dentist",DentistryappintmentDayList[0].map);
   
   console.log("dentistry",DentistryappintmentDayList[0].map.get(1));
   let x=DentistryappintmentDayList[0].map.get(1);
@@ -193,5 +194,7 @@ Todaydate(){
   this.year=this.today.getFullYear();
   this.initCalendar();
 }
+
+
 
 }

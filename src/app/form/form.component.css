@@ -1,0 +1,40 @@
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+h3, button{
+    color: #2F6FB7;
+}
+
+button:hover, button:focus{
+    border: 1px solid #2F6FB7;
+    background-color: #2F6FB7;
+    color: white;
+}
+
+button{
+    border: 1px solid #2F6FB7;
+    border-radius: 5px;
+}
+
+.field{
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+label{
+   width: 35%;
+   color: #2F6FB7;
+}
+
+input{
+    border: 1px solid #C7DBFF;
+    border-radius: 5px;
+    color: #2F6FB7;
+    width: 65%
+}
+
+input:focus{
+    outline: none;
+}

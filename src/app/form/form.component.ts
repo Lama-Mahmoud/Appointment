@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ModalDismissReasons, NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+import { Component } from '@angular/core';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-form',
@@ -9,22 +9,21 @@ import { ModalDismissReasons, NgbModal, NgbModalOptions } from '@ng-bootstrap/ng
 export class FormComponent{
   title = 'ng-bootstrap-modal-demo';
   closeResult!: string;
-  // modalOptions:NgbModalOptions;
 
-  constructor(
-    private modalService: NgbModal
-  ){
-    // this.modalOptions = {
-    //   backdrop:'static',
-    //   backdropClass:''
-    // }
-  }
+  constructor(private modalService: NgbModal){}
   
+  
+  loginUser(item:any){
+ 
+    console.warn(item);
+   }
+
   open(content :any) {
     this.modalService.open(content).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      console.log("dismiss",this.getDismissReason(reason));
     });
   }
 
@@ -36,5 +35,9 @@ export class FormComponent{
     } else {
       return  `with: ${reason}`;
     }
+  }
+
+  close(){
+    this.modalService.dismissAll(ModalDismissReasons.BACKDROP_CLICK);
   }
 }

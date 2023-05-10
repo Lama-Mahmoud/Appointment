@@ -1,1 +1,1 @@
-<button (click)="openDialog()" [ngClass]="{'reserved':time.reserved===false,'not-reserved':time.reserved==true}" >{{time.time}}</button>
+<button ng-click="time.reserved" (click)="openDialog()" [ngClass]="{'reserved':time.reserved===false,'not-reserved':time.reserved==true}" >{{time.time}}</button>
