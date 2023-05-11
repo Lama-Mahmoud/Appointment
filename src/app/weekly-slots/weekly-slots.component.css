@@ -1,0 +1,29 @@
+div{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    height: 130px;
+    align-content: center;
+    /*width: 100%;*/
+    border:1px solid #eee;
+    background-color : #2F6FB7;
+    color: #eee;
+}
+p{
+    text-decoration: none;
+    margin:0px 50px;
+    text-align: center;
+    font-size: 2rem;
+}
+/*div:hover {
+    background-color : #2F6FB7;
+    color: #eee;
+                }*/
+.avilableClass:hover{
+    background-color : #eee;
+    color: #2F6FB7;
+}
+.notAvilableClass{
+    background-color : #cbd2d8;
+    color: #cbd2d8;
+} 

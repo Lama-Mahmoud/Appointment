@@ -1,0 +1,19 @@
+div {
+    font-size       : 2rem;
+     margin          : 0.3rem;
+     width: 91px;
+     height          : 5rem;
+     display         : flex;
+     justify-content : center;
+     align-items     : center;
+     /*text-shadow     : 0 0.3rem 0.5rem #00000080;*/
+     transition      : background-color 0.2s;
+     margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 0px;
+             }
+/*div:hover {
+    background-color : #2F6FB7;
+    border: 0.2rem solid #777;
+    color: #eee;
+                }*/
