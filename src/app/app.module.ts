@@ -10,6 +10,8 @@ import { DaysComponent } from './days/days.component';
 import { SlotsComponent } from './slots/slots.component';
 import { DroplistComponent } from './droplist/droplist.component';
 import { FormComponent } from './form/form.component';
+import { MonthlyViewComponent } from './monthly-view/monthly-view.component';
+import { WeeklyViewComponent } from './weekly-view/weekly-view.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { FormComponent } from './form/form.component';
     SlotsComponent,
     DroplistComponent,
     FormComponent,
+    MonthlyViewComponent,
+    WeeklyViewComponent,
 
   ],
   imports: [
