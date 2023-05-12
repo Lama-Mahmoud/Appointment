@@ -1,3 +1,11 @@
-<a [routerLink]="['']">Monthly</a>
-<a [routerLink]="['weekly']">Weekly</a>
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+    <a [routerLink]="['']"><i class="fa-regular fa-calendar-days"></i></a>
+<a [routerLink]="['weekly']"><i class="fa-solid fa-calendar-week"></i></a>
 <router-outlet></router-outlet>
