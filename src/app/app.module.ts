@@ -29,14 +29,13 @@ import { PreDayComponent } from './pre-day/pre-day.component';
     DaySlotsComponent,
     WeeklySlotsComponent,
     PreDayComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
