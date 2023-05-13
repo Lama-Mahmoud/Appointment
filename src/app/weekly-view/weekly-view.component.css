@@ -4,12 +4,9 @@
     box-sizing  : border-box;
     font-family : "Quicksand", sans-serif;
     }
-  html {
-    font-size : 62.5%;
-    }
-  .container {
+  .container-fluid {
     width            : 100%;
-    height           : 100%;
+    padding          : 0;
     background-color : #eee;
     color            :  #2F6FB7;
     display          : flex;
@@ -24,7 +21,7 @@
         }
 .month {
         width            : 100%;
-        height           : 12rem;
+        height           : 10vh;
         background-color : #2F6FB7;
         display          : flex;
         justify-content  : space-between;
@@ -34,11 +31,10 @@
         /*text-shadow      : 0 0.3rem 0.5rem #00000080;*/
         }
 .month i {
-            font-size : 2.5rem;
+            font-size : 1.5rem;
             cursor    : pointer;
             }
 .month h1 {
-            font-size      : 3rem;
             font-weight    : 400;
             text-transform : uppercase;
             letter-spacing : 0.2rem;
@@ -46,27 +42,25 @@
             color: #eee;
             }
 .month p {
-            font-size : 1.6rem;
+            font-size : 1.2rem;
             color: #eee;
             }
 .weekdays {
-            width       : 100%;
-            height      : 5rem;
-            padding     : 0 0.4rem;
+            width       : 95%;
+            margin-left:4.5%;
+            height      : 5vh;
             display     : flex;
             flex-wrap: wrap;
             align-content: space-around;
             }
-.weekdays div {
-                font-size       : 2.5rem;
+.weekday {
                 font-weight     : 400;
                 letter-spacing  : 0.1rem;
-                width           : calc(44.2rem / 6.2);
+                width           : 14.28%;
                 display         : flex;
                 justify-content : center;
                 align-items     : center;
-               /* text-shadow : 0 0.3rem 0.5rem #00000080;*/
-                margin: auto;
+                margin: 0;
                 
                 }
 .dayandday{
@@ -101,19 +95,17 @@
 table {
         
         table-layout: fixed;
-        /*border-collapse: collapse;*/
-       width: calc(44.2rem / 2.5);
       }
 tr {
         border: 1px solid #645f5f;
-        width: 195px;
-        height: 133.8px;
+        width: 12%;
         
       }
 td{
        /* padding:30px 30px;*/
         text-align: center;
-        font-size: 2.3rem;
+        height: 7vh;
+        width:17%;
         
 }
 

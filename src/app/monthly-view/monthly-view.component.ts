@@ -9,6 +9,7 @@ import { ITime } from '../model/time.interface';
   styleUrls: ['./monthly-view.component.css']
 })
 export class MonthlyViewComponent implements OnInit, OnChanges{
+  date ="";
   DentistryappintmentDayList= DentistryappintmentDayList;
   days: number[]; 
   Pdays :number[];
@@ -46,7 +47,7 @@ FullDate:string=this.months[this.month]+" "+this.year;
 
  }
   ngOnChanges(changes: SimpleChanges): void {
-    
+
   }
 
  ngOnInit(): void {
@@ -198,6 +199,7 @@ Todaydate(){
 }
 
 showNumber(day:any){
+  this.date="Available appointments on "+day+", "+this.months[this.month]+", "+this.year;
   console.log("parent",day);
   this.selectedDay=Number(day);
   this.slotList=DentistryappintmentDayList[0].map.get(this.selectedDay);
