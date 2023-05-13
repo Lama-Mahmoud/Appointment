@@ -35,15 +35,7 @@
     <div class="right">
       <div class="appointment">Available appointments</div>
       <div class="times">
-        <app-slots class="time" [time]="{reserved:true,time:'1:00'}"></app-slots>
-        <app-slots class="time" [time]="{reserved:false,time:'1:15'}"></app-slots>
-        <app-slots class="time" [time]="{reserved:false,time:'1:30'}"></app-slots>
-        <app-slots class="time" [time]="{reserved:true,time:'1:45'}"></app-slots>
-        <app-slots class="time" [time]="{reserved:false,time:'2:00'}"></app-slots>
-        <app-slots class="time" [time]="{reserved:true,time:'2:15'}"></app-slots>
-        <app-slots class="time" [time]="{reserved:false,time:'2:30'}"></app-slots>
-        <app-slots class="time" [time]="{reserved:true,time:'2:45'}"></app-slots>
-        <app-slots class="time" [time]="{reserved:true,time:'3:00'}"></app-slots>
+        <app-slots *ngFor="let slot of slotList" [time]="slot" class="time"></app-slots>
       </div>
       </div>
     </div>

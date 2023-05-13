@@ -1,15 +1,14 @@
-import { Component, ElementRef, Input, OnInit, asNativeElements } from '@angular/core';
+import { Component, ElementRef, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { jsonaday } from '../model/jsonaday.intrface';
 import { DentistryappintmentDayList } from '../model/appointmentDay';
 import { ITime } from '../model/time.interface';
-import { DaysComponent } from '../days/days.component';
 
 @Component({
   selector: 'app-monthly-view',
   templateUrl: './monthly-view.component.html',
   styleUrls: ['./monthly-view.component.css']
 })
-export class MonthlyViewComponent implements OnInit{
+export class MonthlyViewComponent implements OnInit, OnChanges{
   DentistryappintmentDayList= DentistryappintmentDayList;
   days: number[]; 
   Pdays :number[];
@@ -19,7 +18,8 @@ export class MonthlyViewComponent implements OnInit{
   today: Date = new Date();
   month:number=this.today.getMonth();
   year:number=this.today.getFullYear();
-
+  selectedDay!:number;
+  slotList!:ITime[] |undefined;
 
  months = [
   "January",
@@ -45,6 +45,9 @@ FullDate:string=this.months[this.month]+" "+this.year;
   this.dayList=[];
 
  }
+  ngOnChanges(changes: SimpleChanges): void {
+    
+  }
 
  ngOnInit(): void {
    this.initCalendar();
@@ -196,6 +199,9 @@ Todaydate(){
 
 showNumber(day:any){
   console.log("parent",day);
+  this.selectedDay=Number(day);
+  this.slotList=DentistryappintmentDayList[0].map.get(this.selectedDay);
+  console.log(this.slotList)
 }
 
 
