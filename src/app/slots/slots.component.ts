@@ -1,4 +1,4 @@
-import { Component, Input, TemplateRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
 import { ITime } from '../model/time.interface';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormComponent } from '../form/form.component';
@@ -12,6 +12,7 @@ import { FormComponent } from '../form/form.component';
 export class SlotsComponent {
   @Input() time! :ITime;
   closeResult!: string;
+  @Output() reserved : EventEmitter<boolean> =new EventEmitter();
 
   constructor(private modalService: NgbModal){}
   
@@ -23,6 +24,7 @@ export class SlotsComponent {
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
+    this.time.reserved=true;
   }
 
   private getDismissReason(reason: any): string {

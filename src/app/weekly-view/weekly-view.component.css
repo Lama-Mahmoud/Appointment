@@ -56,23 +56,21 @@
 .weekday {
                 font-weight     : 400;
                 letter-spacing  : 0.1rem;
-                width           : 14.28%;
+                width           : 14%;
                 display         : flex;
                 justify-content : center;
                 align-items     : center;
                 margin: 0;
                 
                 }
-.dayandday{
-        font-size       : 3rem;
+.dates{
         font-weight     : 400;
         letter-spacing  : 0.1rem;
-        width           : calc(44.2rem / 6.2);
+        width           : 14%;
         display         : flex;
         justify-content : center;
         align-items     : center;
-        /*text-shadow : 0 0.3rem 0.5rem #00000080;*/
-        margin: auto;
+        margin: 0;
 }
 .schaduale{
         width       : 100%;
@@ -110,9 +108,10 @@ td{
 }
 
 .days {
-        width       : 100%;
-        height      : 5rem;
+        width       : 95%;
+        height      : 10vh;
         padding     : 0 0.4rem;
+        margin-left :4.5%;
         display     : flex;
         flex-wrap: wrap;
         align-content: space-around;

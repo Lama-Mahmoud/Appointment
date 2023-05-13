@@ -206,6 +206,11 @@ showNumber(day:any){
   console.log(this.slotList)
 }
 
-
+changeToFalse(event :any){
+  let time :ITime= {time:event.innerText, reserved:false}
+  let indexOfSlot=this.slotList?.indexOf(time);
+  console.log(indexOfSlot);
+  console.log();
+}
 
 }

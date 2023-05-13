@@ -1,16 +1,12 @@
 div {
-    font-size       : 2rem;
-     margin          : 0.3rem;
+    font-size       : 1.2rem;
      width: 91px;
-     height          : 5rem;
+     height          : 8vh;
      display         : flex;
      justify-content : center;
      align-items     : center;
-     /*text-shadow     : 0 0.3rem 0.5rem #00000080;*/
      transition      : background-color 0.2s;
-     margin-left: 70px;
-    margin-right: 70px;
-    margin-top: 0px;
+     text-align: center;
              }
 /*div:hover {
     background-color : #2F6FB7;

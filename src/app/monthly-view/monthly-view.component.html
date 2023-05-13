@@ -35,7 +35,7 @@
     <div class="right">
       <div class="appointment">{{date}}</div>
       <div class="times">
-        <app-slots *ngFor="let slot of slotList" [time]="slot" class="time"></app-slots>
+        <app-slots *ngFor="let slot of slotList" [time]="slot" class="time" (reserved)="changeToFalse($event)"></app-slots>
       </div>
       </div>
     </div>
