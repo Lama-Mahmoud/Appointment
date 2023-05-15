@@ -15,8 +15,10 @@ export class MonthlyViewComponent implements OnInit{
   today: Date = new Date();
   month:number=this.today.getMonth();
   year:number=this.today.getFullYear();
-  selectedDay=this.today.getDate();
-  slotList=DentistryappintmentDayList[0].map.get(this.selectedDay);
+  selectedDay={ day:this.today.getDate(),
+                month:this.month};
+  currentMonth=this.today.getMonth();
+  slotList=DentistryappintmentDayList[0].map.get(this.selectedDay.day);
 
  months = [
   "January",
@@ -164,8 +166,8 @@ Todaydate(){
 showNumber(day:any){
   this.date="Available appointments on "+day+", "+this.months[this.month]+", "+this.year;
   console.log("parent",day);
-  this.selectedDay=Number(day);
-  this.slotList=DentistryappintmentDayList[0].map.get(this.selectedDay);
+  this.selectedDay.day=Number(day);
+  this.slotList=DentistryappintmentDayList[0].map.get(this.selectedDay.day);
   console.log(this.slotList)
 }
 

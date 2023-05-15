@@ -186,11 +186,16 @@
     margin-bottom: 1%;
   }
   
-  .active:hover{
+  .active:hover, .selected:hover{
     background-color: #C7DBFF;
     border: 1px solid #2F6FB7;
+    color: #2F6FB7 !important;
   }
   
+  .selected{
+    background-color: #2F6FB7;
+    color: #C7DBFF !important;
+  }
   
   .container-fluid .right .times {
     position: relative;

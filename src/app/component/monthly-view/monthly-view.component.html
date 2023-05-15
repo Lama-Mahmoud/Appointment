@@ -14,7 +14,9 @@
       </div>
       <div class="days">
         <app-days class="day" *ngFor="let day of dayList"
-        [day]="day" [ngClass]="{'disabled':day.enable===false,'active':day.enable==true}"
+        [day]="day" [ngClass]="{'disabled':day.enable===false,
+                                'active':day.enable==true,
+                                'selected':(selectedDay.day===day.day ) }"
         (date)="showNumber($event)">
       </app-days>
       </div>
