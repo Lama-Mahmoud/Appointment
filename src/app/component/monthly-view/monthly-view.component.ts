@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { DentistryappintmentDayList } from 'src/app/data/appointmentDay';
 import { jsonaday } from 'src/app/model/jsonaday.intrface';
 import { ITime } from 'src/app/model/time.interface';
@@ -8,16 +8,15 @@ import { ITime } from 'src/app/model/time.interface';
   templateUrl: './monthly-view.component.html',
   styleUrls: ['./monthly-view.component.css']
 })
-export class MonthlyViewComponent implements OnInit, OnChanges{
-  date ="";
+export class MonthlyViewComponent implements OnInit{
   DentistryappintmentDayList= DentistryappintmentDayList;
   dayList:Array<jsonaday>;
   counterday!:Array<ITime>;
   today: Date = new Date();
   month:number=this.today.getMonth();
   year:number=this.today.getFullYear();
-  selectedDay!:number;
-  slotList!:ITime[] |undefined;
+  selectedDay=this.today.getDate();
+  slotList=DentistryappintmentDayList[0].map.get(this.selectedDay);
 
  months = [
   "January",
@@ -33,6 +32,8 @@ export class MonthlyViewComponent implements OnInit, OnChanges{
   "November",
   "December",
 ];
+date ="Available appointments on "+this.selectedDay+", "+this.months[this.month]+", "+this.year;
+
 dayName = [
   "Sun",
   "Mon",
@@ -50,9 +51,6 @@ FullDate:string=this.months[this.month]+" "+this.year;
   this.dayName;
 
  }
-  ngOnChanges(changes: SimpleChanges): void {
-
-  }
 
  ngOnInit(): void {
    this.initCalendar();
@@ -79,14 +77,9 @@ this.FullDate=this.months[this.month]+" "+this.year;
  
   
  for(let x=day; x>0; x--){
-  let theprevDaysNeeded=prevDays-x+1;
-  
- this.dayList.push({day:theprevDaysNeeded,enable:false,availableSlot:0});
- 
+    let theprevDaysNeeded=prevDays-x+1;
+    this.dayList.push({day:theprevDaysNeeded,enable:false,availableSlot:0});
  }
-
- 
- 
 
  for(let i = 1; i <= lastDate; i++){
   if(this.month==this.today.getMonth()){
@@ -94,17 +87,17 @@ this.FullDate=this.months[this.month]+" "+this.year;
         this.dayList.push({day:i,enable:false,availableSlot:0});
       }
       else if(DentistryappintmentDayList[0].map.has(i)){
-        let counte =0;
-        //this.counterday=DentistryappintmentDayList[0].map.size;
+        let counter =0;
+
         let SoltsArray=DentistryappintmentDayList[0].map.get(i);
         let arrayLength=SoltsArray!.length;
         for(let j=0;j<arrayLength;j++){
           if(SoltsArray?.at(j)?.reserved==true){
-            counte++;
+            counter++;
           }
         }
 
-        this.dayList.push({day:i,enable:true,availableSlot:counte});
+        this.dayList.push({day:i,enable:true,availableSlot:counter});
       }
       else{
         this.dayList.push({day:i,enable:false,availableSlot:0});
