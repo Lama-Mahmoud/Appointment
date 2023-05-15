@@ -10,46 +10,39 @@
 
       <div class="field">
         <label class="label">First Name </label>
-        <input type="text" required #name="ngModel" pattern="[a-zA-Z]+$" name="name" placeholder="Name" ngModel>
+        <input type="text" required #name="ngModel" pattern="[a-zA-Z]+$" name="name" ngModel>
         
-        <span class="error" *ngIf="name.invalid && name.touched ">  * invaled</span>
       </div>
     <br>
     <div class="field">
         <label class="label">Last Name </label>
         <input type="text" name="lname" required #lname="ngModel" pattern="[a-zA-Z]+$"  class="input" ngModel>
-        <span class="error" *ngIf="lname.invalid && lname.touched ">  * invaled</span>
       </div>
       <br>
       <div class="field">
         <label class="label">Email </label>
         <input type="text" name="email" required #email="ngModel" email class="input" ngModel>
-        <span class="error" *ngIf="email.invalid && email.touched ">  * invaled</span>
       </div>
       <br>
       <div class="field">
         <label class="label">Birth Date </label>
         <input type="date" name="birth" required #birth="ngModel" class="input" ngModel>
-        <span class="error" *ngIf="birth.invalid && birth.touched ">  * invaled</span>
       </div>
       <br>
       <div class="field">
         <label class="label"> City</label>
         <input type="text" name="city" required #city="ngModel" class="input" ngModel>
-        <span class="error" *ngIf="city.invalid && city.touched ">  * invaled</span>
       </div>
       <br>
       <div class="field">
         <label class="label">Zip-Code </label>
         <input type="text" name="zip" minlength="5" required #zip="ngModel" pattern="^[0-9]*$" class="input" ngModel>
-        <span class="error" *ngIf="zip.invalid && zip.touched ">  * invaled</span>
        
       </div>
       <br>
       <div class="field">
         <label class="label">Phone number</label>
-        <input type="tel"name="phone"minlength="10" required #numb="ngModel" pattern="^[0-9]*$" class="input" ngModel>
-        <span class="error" *ngIf="numb.invalid && numb.touched ">  * invaled</span>
+        <input type="tel"name="phone" minlength="10" required #numb="ngModel" pattern="^[0-9]*$" class="input" ngModel>
       </div>
     <br>
     </form>      

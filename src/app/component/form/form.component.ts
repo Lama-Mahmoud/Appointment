@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -7,35 +8,30 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent{
-  title = 'ng-bootstrap-modal-demo';
   closeResult!: string;
+  form:FormGroup
 
-  constructor(private modalService: NgbModal){}
+  constructor(private modalService: NgbModal, private fb :FormBuilder){
+    this.form = this.fb.group({
+      name: ['', Validators.required],
+      lname: ['', Validators.required],
+      phone: ['',Validators.required],
+      zip: ['', Validators.required],
+      city: ['', Validators.required],
+      birth: ['', Validators.required]
+    });
+  }
   
   
   loginUser(item:any){
- 
-    console.warn(item);
+
+    if (!this.form.invalid){
+      console.log(this.form.invalid)
+      this.modalService.dismissAll(ModalDismissReasons.BACKDROP_CLICK);
+      return;}
+
+    alert('thanks for your order!');
    }
-
-  open(content :any) {
-    this.modalService.open(content).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-      console.log("dismiss",this.getDismissReason(reason));
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
-  }
 
   close(){
     this.modalService.dismissAll(ModalDismissReasons.BACKDROP_CLICK);
