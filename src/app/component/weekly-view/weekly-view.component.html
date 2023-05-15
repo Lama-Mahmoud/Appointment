@@ -1,0 +1,32 @@
+
+<div class="container-fluid">
+  <div class="calendar">
+    <div class="month">
+      <i style="color: #eee;" class="fas fa-angle-left prev" (click)="prevWeek()"></i>
+      <div class="date">
+        <h1>{{h1}}</h1>
+        <p>{{p}}</p>
+      </div>
+      <i style="color: #eee;" class="fas fa-angle-right next" (click)="nextWeek()"></i>
+    </div>
+    <div class="weekdays">
+      <div *ngFor="let name of dayName" >{{name}}</div>
+    </div>
+    <div class="days">
+      <div class="dayandday" style="width:calc(44.2rem / 9);"></div>
+      <app-pre-day class="dayandday" *ngFor="let day of dayList"
+      [day]="day"></app-pre-day>
+    </div>
+    <div class="schaduale">
+      <div >
+        <ul>
+          <li *ngFor="let time of clinicTime">{{time}}</li>
+        </ul>
+      </div>
+      <div class="dayslots" style="display: flex; flex-wrap: wrap; width :89%; height:100% ; padding: 0px;">
+        <app-day-solts style="width: calc(100% / 7);"  *ngFor="let day of dayList"
+        [day]="day"></app-day-solts>
+      </div>
+    </div>
+  </div>
+</div>

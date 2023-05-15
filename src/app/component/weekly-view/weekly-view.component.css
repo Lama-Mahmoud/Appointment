@@ -1,0 +1,131 @@
+* {
+    margin      : 0;
+    padding     : 0;
+    box-sizing  : border-box;
+    font-family : "Quicksand", sans-serif;
+    }
+  .container-fluid {
+    width            : 100%;
+    padding          : 0;
+    background-color : #eee;
+    color            :  #2F6FB7;
+    display          : flex;
+    justify-content  : center;
+    align-items      : center;
+    }
+.calendar {
+        width: 100%;
+        height           : 100%;
+        background-color : #eee;
+        /*box-shadow       : 0 0.5rem 3rem #00000066;*/
+        }
+.month {
+        width            : 100%;
+        height           : 10vh;
+        background-color : #2F6FB7;
+        display          : flex;
+        justify-content  : space-between;
+        align-items      : center;
+        padding          : 0 2rem;
+        text-align       : center;
+        /*text-shadow      : 0 0.3rem 0.5rem #00000080;*/
+        }
+.month i {
+            font-size : 1.5rem;
+            cursor    : pointer;
+            }
+.month h1 {
+            font-weight    : 400;
+            font-size: 1rem;
+            text-transform : uppercase;
+            letter-spacing : 0.2rem;
+            margin-bottom  : 0.5rem;
+            color: #eee;
+            }
+.month p {
+            font-size : 1rem;
+            color: #eee;
+            }
+.weekdays {
+            width       : 100%;
+            /*margin-left:4.5%;*/
+            height      : 5vh;
+            padding     :  0rem;
+            display     : flex;
+            flex-wrap: wrap;
+            align-content: space-around;
+            }
+ .weekdays div {
+                font-size       : 1.2rem;
+                font-weight     : 400;
+                letter-spacing  : 0.1rem;
+                width           : calc(44.2rem / 7.5);
+                display         : flex;
+                justify-content : center;
+                align-items     : center;
+                /* text-shadow : 0 0.3rem 0.5rem #00000080;*/
+                margin: auto;
+                        
+                        }
+.dayandday{
+        font-size       : 1.2rem;
+        font-weight     : 400;
+        letter-spacing  : 0.1rem;
+        width           : calc(44.2rem / 7.5);
+        display         : flex;
+        justify-content : center;
+        align-items     : center;
+        /*text-shadow : 0 0.3rem 0.5rem #00000080;*/
+        margin: auto;
+}
+.schaduale{
+        width       : 100%;
+            height      : 100%;
+            padding     : 0 0.4rem;
+            display     : flex;
+            flex-direction: row;
+            align-content: space-around;
+}
+.dayslots{
+        width       : 100%;
+            height      : 100%;
+            padding     : 0 0.4rem;
+            display: flex;
+            flex-wrap: wrap;
+            /*gap: 20px;*/
+           flex-direction: row;
+            
+}
+ul{
+        width: calc(44.2rem / 5);
+
+      }
+tr {
+        border: 1px solid #eee;
+        width: 12%;
+        
+      }
+li{
+       /* padding:30px 30px;*/
+        text-align: center;
+        height: 7vh;
+        font-size: 1.1rem;
+        margin: 0px;
+        padding-top: 10px;
+        
+}
+
+.days {
+        width       : 100%;
+        height      : 5vh;
+        padding     : 0 0.4rem;
+        display     : flex;
+        flex-wrap: wrap;
+        align-content: space-around;
+                }
+
+.days div:hover:not(.today) {
+                    background-color : #262626;
+                    border           : 0.2rem solid #777;
+                    cursor           : pointer;
+                    }
