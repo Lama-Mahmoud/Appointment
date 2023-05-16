@@ -34,7 +34,7 @@ export class MonthlyViewComponent implements OnInit{
   "November",
   "December",
 ];
-date ="Available appointments on "+this.selectedDay+", "+this.months[this.month]+", "+this.year;
+date ="Available appointments on "+this.selectedDay.day+", "+this.months[this.month]+", "+this.year;
 
 dayName = [
   "Sun",
@@ -76,7 +76,7 @@ this.FullDate=this.months[this.month]+" "+this.year;
  
  this.dayList.length=0;
 
- 
+  console.log(this.selectedDay)
   
  for(let x=day; x>0; x--){
     let theprevDaysNeeded=prevDays-x+1;
