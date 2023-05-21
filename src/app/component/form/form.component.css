@@ -54,4 +54,31 @@ input:focus{
       opacity: 1;
     }
   }
-  
+
+  .btn-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0px;
+   }
+   .btn-group .button {
+       background-color:  white;
+       border: 1px solid #2F6FB7;
+       color: #2F6FB7;
+       padding: 15px 40px;
+       text-align: center;
+       text-decoration: none;
+       font-size: 16px;
+       cursor: pointer;
+       width: 300px;
+       /*display: block;*/
+       margin-bottom: 50px;
+       margin-top: 20px;
+     }
+     
+     
+     .btn-group .button:hover {
+       border: 1px solid #2F6FB7;
+       background-color: #2F6FB7;
+       color: white;
+     }

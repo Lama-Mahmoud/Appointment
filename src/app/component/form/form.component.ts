@@ -1,7 +1,7 @@
-import { Component, OnInit
+import { Component, Input, OnInit
  } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, ValidationErrors } from '@angular/forms';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalDismissReasons, NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-form',
@@ -10,10 +10,15 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class FormComponent implements OnInit{
   closeResult!: string;
-  form: FormGroup;
+  form:FormGroup
+  @Input() slots:any;
+  visible:boolean = true;
+  visibleButton:boolean = false;
+  formDescription:string = 'Appointment Request';
+  time="";
   isNameTouched: boolean = false;
 
-  constructor(private modalService: NgbModal, private fb: FormBuilder) {
+  constructor(private modal: NgbActiveModal, private fb: FormBuilder) {
     this.form = this.fb.group({
       name: ['', [Validators.required, this.customNameValidator.bind(this)]],
       lname: ['', [Validators.required, this.customNameValidator.bind(this)]],
@@ -24,10 +29,6 @@ export class FormComponent implements OnInit{
       phone: ['', [Validators.required, Validators.minLength(10), Validators.pattern(/^[0-9]*$/)]],
     });
   }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-
   // Other methods
 
   customNameValidator(control: FormControl): { [key: string]: boolean } | null {
@@ -61,19 +62,65 @@ export class FormComponent implements OnInit{
     return valid ? null : { invalidAge: true };
   }
 
-  loginUser() {
-    console.log(this.form.value);
-    if (this.form.valid) {
-      console.log(this.form.valid);
-      this.modalService.dismissAll(ModalDismissReasons.BACKDROP_CLICK);
-      alert("valid");
+  ngOnInit() {
+    this.openForm();
+  }
+ 
+openForm(){
+
+    if(this.slots.time==="waiting for confirmation"){
+      this.formDescription="Confirmation"
+      this.visible=false;
+    }
+   else{
+      this.time=this.slots.time;
+      this.visible=true;
+    }
+  }
+  
+  
+  loginUser(item:any){
+    
+    console.log("validity",this.form.invalid);
+    console.log(this.slots);
+    if (this.form.invalid){
+      console.log(this.form.invalid)
       return;
     }
+    this.visible=false;  
+    console.log(this.form)
+    alert('thanks for your order!');
+    this.slots.time='waiting for confirmation'
+    this.modal.close(this.slots.time);
+    this.modal.dismiss();
 
-    alert('Thanks for your order!');
-  }
+   }
+   
+   Confirm(){
+    console.log(this.time)
+    this.slots.time=this.time+' Your Appointment'
+    this.slots.reserved=true;
+    this.modal.close(this.slots.time);
 
-  close() {
-    this.modalService.dismissAll(ModalDismissReasons.BACKDROP_CLICK);
+   }
+
+   Edit(){
+    
+      this.visible=true;
+      //this.visibleButton=false;
+      this.formDescription="Edit Appointment"
+      
+   }
+
+   Unschedule(){
+    this.slots.time='Available'
+    this.modal.close(this.slots.time);
+    
+    
+   }
+
+
+  close(){
+    this.modal.dismiss();
   }
 }

@@ -14,15 +14,23 @@ export class WeeklySlotsComponent {
   constructor(private modalService: NgbModal){}
   
   openDialog() {
+    
     let content=FormComponent;
-    //console.log(content)
-    this.modalService.open(content).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-      console.log("Here I am !!! "+this.closeResult )
-    }, (reason) => {
+    const ref = this.modalService.open(content);
+    ref.componentInstance.slots = this.slots;
+    
+    ref.result.then((slots) => {
+      this.slots.available2=slots;
+      console.log(slots)
+      /*if(this.slots.available2=="Available"){
+
+
+      }*/
+    },
+     (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-      //console.log("Here I am !!! "+this.getDismissReason(reason) )
     });
+  
  
   
   }
