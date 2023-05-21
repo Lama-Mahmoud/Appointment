@@ -1,18 +1,35 @@
-div{
+.avalibalSlots:hover{
+    
+  background-color: transparent;
+}
+.avalibalSlotsRed:hover{
+  border-color: red;;
+ 
+}
+.avalibalSlotsBlue:hover{
+  text-decoration: double;
+  border: 4px solid blue !important;
+}
+
+input{
   width: 100%;
   height: 11vh;
   text-align: center;
-  padding: 35%;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  border: none;
+  background-color: transparent;
+  padding: 1%;
+  color: #2F6FB7 ;
 }
-.avalibalSlots:hover{
-    
-    background-color: transparent;
-  }
-  .avalibalSlotsRed:hover{
-    color: red;
-    cursor: not-allowed;
-   
-  }
-  .avalibalSlotsBlue:hover{
-    text-decoration: double;
-  }
+
+input:disabled{
+  color: #efefef;
+}
+
+.selected {
+  background-color: #2F6FB7;
+  color: #C7DBFF !important;
+}

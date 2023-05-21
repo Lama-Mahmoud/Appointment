@@ -6,47 +6,71 @@
     </button>
   </div>
   <br>
-  <form #loginForm="ngForm" (ngSubmit)="validation(loginForm.value)">
-
-      <div class="field">
-        <label class="label">First Name </label>
-        <input type="text" pattern="[a-zA-Z]+$" minlength="3" name="name" ngModel>
-        
+  <form [formGroup]="form" (ngSubmit)="loginUser()">
+    <div class="field">
+      <label class="label">First Name</label>
+      <input formControlName="name" type="text" required name="name" (blur)="validateName()">
+      <div *ngIf="isNameTouched && form.get('name')?.invalid && form.get('name')?.errors?.['required']" class="error-message">
+        First Name is required.
       </div>
+    </div>
     <br>
     <div class="field">
-        <label class="label">Last Name </label>
-        <input type="text" name="lname" pattern="[a-zA-Z]+$"  minlength="3" class="input" ngModel>
+      <label class="label">Last Name</label>
+      <input formControlName="lname" type="text" required name="lname" (blur)="validateName()">
+      <div *ngIf="isNameTouched && form.get('lname')?.invalid && form.get('lname')?.errors?.['required']" class="error-message">
+        Last Name is required.
       </div>
-      <br>
-      <div class="field">
-        <label class="label">Email </label>
-        <input type="text" name="email" class="input" ngModel>
-      </div>
-      <br>
-      <div class="field">
-        <label class="label">Birth Date </label>
-        <input type="date" name="birth" class="input" ngModel>
-      </div>
-      <br>
-      <div class="field">
-        <label class="label"> City</label>
-        <input type="text" name="city"  class="input" ngModel>
-      </div>
-      <br>
-      <div class="field">
-        <label class="label">Zip-Code </label>
-        <input type="text" name="zip" class="input" ngModel>
-       
-      </div>
-      <br>
-      <div class="field">
-        <label class="label">Phone number</label>
-        <input type="tel"name="phone" minlength="10" pattern="^[0-9]*$" class="input" ngModel>
-      </div>
+    </div>
     <br>
-    </form>      
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="validation(loginForm.value)">Ok</button>
-  </div>
+    <div class="field">
+      <label class="label">Email</label>
+      <input formControlName="email" type="email" name="email" required (blur)="validateName()">
+      <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid && form.get('email')?.errors?.['required']" class="error-message">
+        Email is required.
+      </div>
+      <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid && form.get('email')?.errors?.['invalidEmail']" class="error-message">
+        Invalid email format.
+      </div>
+    </div>
+    <br>
+    <div class="field">
+      <label class="label">Birth Date</label>
+      <input formControlName="birth" type="date" name="birth" required>
+      <div *ngIf="form.get('birth')?.touched && form.get('birth')?.invalid && form.get('birth')?.errors?.['invalidAge']" class="error-message">
+        Invalid age. Age must be between 18 and 100 years.
+      </div>
+    </div>
+    <br>
+    <div class="field">
+      <label class="label">City</label>
+      <input formControlName="city" type="text" name="city" required>
+    </div>
+    <br>
+    <div class="field">
+      <label class="label">Zip-Code</label>
+      <input formControlName="zip" type="text" name="zip" required>
+      <div *ngIf="form.get('zip')?.touched && form.get('zip')?.invalid && form.get('zip')?.errors?.['required']" class="error-message">
+        Zip-Code is required.
+      </div>
+      <div *ngIf="form.get('zip')?.touched && form.get('zip')?.invalid && form.get('zip')?.errors?.['minlength']" class="error-message">
+        Zip-Code must have a minimum length of 5 characters.
+      </div>
+    </div>
+    <br>
+    <div class="field">
+      <label class="label">Phone</label>
+      <input formControlName="phone" type="tel" name="phone" required pattern="^[0-9]{10}$">
+      <div *ngIf="form.get('phone')?.touched && form.get('phone')?.invalid && form.get('phone')?.errors?.['required']" class="error-message">
+        Phone is required.
+      </div>
+      <div *ngIf="form.get('phone')?.touched && form.get('phone')?.invalid && form.get('phone')?.errors?.['pattern']" class="error-message">
+        Phone must be a 10-digit number.
+      </div>
+    </div>
+    <br>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-outline-dark">Ok</button>
+    </div>
+  </form>
 </div>

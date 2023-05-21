@@ -1,6 +1,19 @@
-div{
-    width: 100%;
-    align-content: center;
-    margin:0;/*1.5rem;*/
-  }
+button{
+  width: 100%;
+  align-content: center;
+  background-color: transparent;
+  outline: none;
+  border:none;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  border: none;
+  background-color: transparent;
+  padding: 0%;
+  width: 100%;
+}
+button:focus{
+  outline: none;
+}
   

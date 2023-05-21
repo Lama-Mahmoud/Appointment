@@ -38,3 +38,20 @@ input{
 input:focus{
     outline: none;
 }
+.error-message {
+    color: rgb(207, 91, 91);
+    font-size: 14px;
+    padding: 5px;
+    margin-top: 5px;
+    animation: fade-in 0.3s ease-in-out;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

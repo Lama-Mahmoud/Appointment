@@ -153,6 +153,13 @@
   app-droplist{
     height: 7vh;
   }
+
+  
+  app-days.selected {
+    background-color: #2F6FB7;
+    color: #C7DBFF !important;
+  }
+
   .active{
     width: 100%;
     height: 11.1vh;
@@ -161,7 +168,7 @@
     justify-content: center;
     cursor: pointer;
     padding: 0%;
-    color: var(--secondary-clr);
+    color: #2F6FB7 !important;
     border: 0.5px solid #C7DBFF;
   }
   
@@ -175,10 +182,10 @@
     background-color: #dfdfdf;
     cursor: not-allowed;
     border: 0.5 solid #dfdfdf;
-    color: black;
   }
   .today-btn{
     background-color: white;
+    
     border: none;
     color: #2F6FB7;
     font-size: 1.1rem;
@@ -190,11 +197,6 @@
     background-color: #C7DBFF;
     border: 1px solid #2F6FB7;
     color: #2F6FB7 !important;
-  }
-  
-  .selected{
-    background-color: #2F6FB7;
-    color: #C7DBFF !important;
   }
   
   .container-fluid .right .times {

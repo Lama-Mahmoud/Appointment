@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit
+ } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators, ValidationErrors } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -7,55 +8,72 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent{
+export class FormComponent implements OnInit{
   closeResult!: string;
-  form:FormGroup
+  form: FormGroup;
+  isNameTouched: boolean = false;
 
-  constructor(private modalService: NgbModal, private fb :FormBuilder){
+  constructor(private modalService: NgbModal, private fb: FormBuilder) {
     this.form = this.fb.group({
-      name: ['', Validators.required],
-      lname: ['', Validators.required],
-      phone: ['',Validators.required],
-      zip: ['', Validators.required],
+      name: ['', [Validators.required, this.customNameValidator.bind(this)]],
+      lname: ['', [Validators.required, this.customNameValidator.bind(this)]],
+      email: ['', [Validators.required, this.emailValidator.bind(this)]],
+      birth: ['', [Validators.required,this.birthValidator.bind(this)]],
       city: ['', Validators.required],
-      birth: ['', Validators.required]
+      zip: ['', [Validators.required, Validators.minLength(5)]],
+      phone: ['', [Validators.required, Validators.minLength(10), Validators.pattern(/^[0-9]*$/)]],
     });
   }
-  
-  
-  validation(item:any){
-    if(this.verifyEmail(item.email)
-        && this.verifyBirthday(item.birth)
-        && this.verifyZip(item.zip)
-        && this.verifyPhone(item.phone)){
-
-          console.log(item)
-          this.modalService.dismissAll(ModalDismissReasons.BACKDROP_CLICK);}
-   }
-
-  close(){
-    this.modalService.dismissAll(ModalDismissReasons.BACKDROP_CLICK);
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
-  verifyEmail(email:string){
-    const expression: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-    if(expression.test(email)){
-      return true;
+  // Other methods
+
+  customNameValidator(control: FormControl): { [key: string]: boolean } | null {
+    if (control.value && control.value.length < 3) {
+      return { 'customNameValidator': true };
     }
-    return false
+    return null;
   }
-  verifyBirthday(dateString :any){
-    let birthday = new Date(dateString);
-    let now = new Date();
-    return now.getFullYear() - birthday.getFullYear() >= 18;
-  }
-  verifyPhone(phone: string){
-    var phoneRegEx =new RegExp("^(\\([0-9]{3}\\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$");
-    return phoneRegEx.test(phone);
 
+  emailValidator(control: FormControl): ValidationErrors | null {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const valid = emailRegex.test(control.value);
+
+    return valid ? null : { invalidEmail: true };
   }
-  verifyZip(zip :string){
-    var us = new RegExp("^\\d{5}(-{0,1}\\d{4})?$");
-    return us.test(zip);
+
+  validateName() {
+    this.isNameTouched = true;
+    
+  }
+  
+  birthValidator(control: FormControl): ValidationErrors | null {
+    const today= new Date();
+    const birth= new Date(control.value);
+    const age =today.getFullYear()-birth.getFullYear();
+    let valid=false;
+    console.log(control.value)
+    if(age>18){
+      valid=true;
+    }
+    return valid ? null : { invalidAge: true };
+  }
+
+  loginUser() {
+    console.log(this.form.value);
+    if (this.form.valid) {
+      console.log(this.form.valid);
+      this.modalService.dismissAll(ModalDismissReasons.BACKDROP_CLICK);
+      alert("valid");
+      return;
+    }
+
+    alert('Thanks for your order!');
+  }
+
+  close() {
+    this.modalService.dismissAll(ModalDismissReasons.BACKDROP_CLICK);
   }
 }

@@ -161,16 +161,16 @@ Todaydate(){
   this.month=this.today.getMonth();
   this.year=this.today.getFullYear();
   this.initCalendar();
+  this.selectedDay.day=this.today.getDate();
+  this.selectedDay.month=this.today.getMonth();
 }
 
 showNumber(day:any){
   this.date="Available appointments on "+day+", "+this.months[this.month]+", "+this.year;
   console.log("parent",day);
   this.selectedDay.day=Number(day);
+  this.selectedDay.month=this.month;
   this.slotList=DentistryappintmentDayList[0].map.get(this.selectedDay.day);
   console.log(this.slotList)
 }
-
-
-
 }

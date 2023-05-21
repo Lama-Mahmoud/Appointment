@@ -5,9 +5,9 @@
     <button class="today-btn" (click)="Todaydate()">Today</button>
     <div class="calendar">
       <div class="month">
-        <i class="fas fa-angle-left prev" (click)="prevMonth()"></i>
+        <i class="fa-chevron-left prev" (click)="prevMonth()"></i>
         <div class="date">{{FullDate}}</div>
-        <i class="fas fa-angle-right next" (click)="nextMonth()"></i>
+        <i class="fa-arrow-right-long next" (click)="nextMonth()"></i>
       </div>
       <div class="weekdays">
         <div *ngFor="let name of dayName">{{name}}</div>
@@ -15,9 +15,10 @@
       <div class="days">
         <app-days class="day" *ngFor="let day of dayList"
         [day]="day" [ngClass]="{'disabled':day.enable===false,
-                                'active':day.enable==true,
-                                'selected':(selectedDay.day===day.day ) }"
-        (date)="showNumber($event)">
+                                'active':day.enable==true, }"
+        (date)="showNumber($event)"
+        [selected]="{selectedDay}"
+        [month]="{month}">
       </app-days>
       </div>
   </div>
