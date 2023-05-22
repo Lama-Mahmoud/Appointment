@@ -2,8 +2,8 @@
     margin      : 0;
     padding     : 0;
     box-sizing  : border-box;
-    font-family : "Quicksand", sans-serif;
     }
+
   .container-fluid {
     width            : 100%;
     padding          : 0;
@@ -129,3 +129,7 @@ li{
                     border           : 0.2rem solid #777;
                     cursor           : pointer;
                     }
+
+.days, .weekdays,.schaduale, .date{
+        font-family: Arial, Helvetica, sans-serif;
+}
