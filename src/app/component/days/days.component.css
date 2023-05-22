@@ -11,6 +11,10 @@
   border: 4px solid blue !important;
 }
 
+.selected {
+  background-color: #2F6FB7;
+  color: #C7DBFF !important;
+}
 input{
   width: 100%;
   height: 11vh;
@@ -26,10 +30,13 @@ input{
 }
 
 input:disabled{
-  color: #efefef;
+  color: #9e9c9c;
 }
 
-.selected {
-  background-color: #2F6FB7;
-  color: #C7DBFF !important;
+
+    
+@media screen and (max-width: 1000px) {
+  input{
+    height: 6vh;
+  }
 }

@@ -10,7 +10,6 @@ export class DaysComponent{
   @Input() day!:jsonaday;
   @Input() selected!:any;
   @Input() month!:any;
-  elements=document.getElementsByClassName("dayCSS");
   
   @Output() date:EventEmitter<any>=new EventEmitter();
 
