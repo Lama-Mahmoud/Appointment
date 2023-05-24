@@ -37,7 +37,8 @@ button{
 } 
 
 
-.waitForAvilableClass{
+.waitForAvilableClass,.waitForAvilableClass:hover,.waitForAvilableClass:focus{
     background-color : #ee5b06;
     color:#cbd2d8 ;
+    outline: none;
 } 

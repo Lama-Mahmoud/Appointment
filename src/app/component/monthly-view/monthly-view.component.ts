@@ -15,7 +15,7 @@ export class MonthlyViewComponent implements OnInit{
   today: Date = new Date();
   month:number=this.today.getMonth();
   year:number=this.today.getFullYear();
-  selectedDay={ day:this.today.getDate(),
+  selectedDay:any={ day:this.today.getDate(),
                 month:this.month};
   currentMonth=this.today.getMonth();
   slotList=DentistryappintmentDayList[0].map.get(this.selectedDay.day);
@@ -163,6 +163,7 @@ Todaydate(){
   this.initCalendar();
   this.selectedDay.day=this.today.getDate();
   this.selectedDay.month=this.today.getMonth();
+  this.slotList=DentistryappintmentDayList[0].map.get(this.selectedDay.day);
 }
 
 showNumber(day:any){

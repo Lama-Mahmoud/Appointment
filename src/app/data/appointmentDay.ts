@@ -39,7 +39,7 @@ Mapping1.set(21,MayOneList);
 Mapping1.set(22,MayOneList);
 Mapping1.set(24,MayOneList);
 Mapping1.set(29,MayOneList);
-export const DentistryappintmentDayList: Array<IAppointmentDay> =[
+export let DentistryappintmentDayList: Array<IAppointmentDay> =[
     {
     department:'Dentistry',
     monthA:5,

@@ -1,3 +1,3 @@
-<div [ngClass]="{'avilableClass' :slots.available2=='Available','notAvilableClass' :slots.available2=='not available' }" >
-    <button (click)="openDialog()" [disabled]="slots.available2=='not available'" [ngClass]="{'avilableClass' :slots.available2=='Available','notAvilableClass' :slots.available2=='not available' }">{{slots.available2}}</button> 
+<div [ngClass]="{'avilableClass' :slots.available2=='Available','notAvilableClass' :slots.available2=='not available','waitForAvilableClass' :slots.available2=='waiting for confirmation'  }" >
+    <button (click)="openDialog()" [disabled]="slots.available2=='not available'" [ngClass]="{'avilableClass' :slots.available2=='Available','notAvilableClass' :slots.available2=='not available','waitForAvilableClass' :slots.available2=='waiting for confirmation' }">{{slots.available2}}</button> 
 </div>

@@ -6,7 +6,7 @@
     </button>
   </div>
   <br>
-  <form [formGroup]="form" (ngSubmit)="loginUser($event.value)"   *ngIf="visible">
+  <form [formGroup]="form" (ngSubmit)="loginUser($event.value)">
     <div class="field">
       <label class="label">First Name</label>
       <input formControlName="name" type="text" required name="name" (blur)="validateName()">
@@ -70,13 +70,12 @@
     </div>
     <br>
     <div class="modal-footer">
-      <button type="submit" class="btn btn-outline-dark" (click)="loginUser($event)">Ok</button>
+      <button type="submit" class="btn btn-outline-dark" (click)="loginUser($event)" *ngIf="!visible">Ok</button>  
+      <div class="btn-group" *ngIf="visible">
+        <button class="button" (click)="Confirm()">Confirm</button>
+        <button class="button" (click)="Unschedule()">Unschedule</button>
+      </div> 
     </div>
      
-  </form>
-    <div class="btn-group" *ngIf="!visible">
-      <button class="button" (click)="Confirm()">Confirm</button>
-      <button class="button" (click)="Edit()">Edit</button>
-      <button class="button" (click)="Unschedule()">Unschedule</button>
-    </div>  
+  </form>  
 </div>

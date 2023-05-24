@@ -1,6 +1,6 @@
 import { ITime } from "../model/time.interface"
 
-export const MayOneList: Array<ITime> =[
+export let MayOneList: Array<ITime> =[
     {
     reserved: false,
     time:"9:00"
@@ -51,7 +51,7 @@ export const MayOneList: Array<ITime> =[
         },
 
 ]
-export const MayTwoList: Array<ITime> =[
+export let MayTwoList: Array<ITime> =[
     {
         reserved: true,
         time:"9:00"},
@@ -100,7 +100,7 @@ export const MayTwoList: Array<ITime> =[
         time:"1:15"    },
 
 ]
-export const MayThreeList: Array<ITime> =[
+export let MayThreeList: Array<ITime> =[
     {
         reserved: false,
         time:"9:00"},

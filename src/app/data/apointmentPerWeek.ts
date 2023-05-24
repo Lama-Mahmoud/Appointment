@@ -35,7 +35,7 @@ Mapping.set(29,MayThreeList);
 Mapping.set(30,MayTwoList);
 Mapping.set(31,MayThreeList);
 
-export const DentistryappintmentDayList: Array<IAppointmentDay> =[
+export let DentistryappintmentDayList: Array<IAppointmentDay> =[
     {
    
         mapOfSlotsList:Mapping,

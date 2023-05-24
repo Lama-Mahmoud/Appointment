@@ -52,11 +52,11 @@ export class WeeklyViewComponent {
     "1:00 PM",
     "1:15 PM" ,
   ]
-  h1!:string;
-  p:string= new Date().toDateString();
+  monthName!:string;
+  dateRange:string= new Date().toDateString();
   constructor(){
-    this.h1;
-    this.p;
+    this.monthName;
+    this.dateRange;
     this.dayList=[];
     this.dayName;
     this.clinicTime;
@@ -74,7 +74,7 @@ export class WeeklyViewComponent {
   const firstDayIndex = this.today.getDay();
   const lastDayIndex  = new Date( this.today.getFullYear(), this.month + 1, 0 ).getDay();
   const nextDays= 7 - lastDayIndex - 1;
-  this.h1=this.months[this.month];
+  this.monthName=this.months[this.month];
   let index=this.today.getDay();
   this.dayOfFirstIndexInWeek=this.currentDay-index;
   this.dayList.length=0;
