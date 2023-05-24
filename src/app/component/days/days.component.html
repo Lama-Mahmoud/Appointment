@@ -1,8 +1,9 @@
+<div [ngClass]="{'avalibalSlotsBlue':day.availableSlot>=5,
+        'avalibalSlotsRed':(day.availableSlot<5 && day.availableSlot>0),
+        'avalibalSlots':day.availableSlot==0}">
 <input type="button" 
-[ngClass]="{'dayCSS':day.enable==true,'avalibalSlotsRed':day.availableSlot>5,
-        'avalibalSlotsBlue':day.availableSlot<=5 && day.availableSlot>0,
-        'avalibalSlots':day.availableSlot==0,
+[ngClass]="{'dayCSS':day.enable==true,
         'selected':(selected.selectedDay.day===day.day && selected.selectedDay.month==month.month && day.availableSlot>0 )}"
 
         (click)="showSlots($event)" [disabled]="day.enable==false" value="{{day.day}}">
-    
+</div>

@@ -1,22 +1,27 @@
 .avalibalSlots:hover{
-    
   background-color: transparent;
 }
-.avalibalSlotsRed:hover{
-  border-color: red;;
- 
-}
+
 .avalibalSlotsBlue:hover{
   text-decoration: double;
-  border: 4px solid blue !important;
+  border: 1px solid blue !important;
+}
+
+.avalibalSlotsRed:hover{
+  border: 1px solid red;
+ 
 }
 
 .selected {
   background-color: #2F6FB7;
   color: #C7DBFF !important;
 }
-input{
+div{
   width: 100%;
+  padding: 0;
+}
+input{
+  width: 99%;
   height: 11vh;
   text-align: center;
   margin: 0;

@@ -94,11 +94,11 @@ this.FullDate=this.months[this.month]+" "+this.year;
         let SoltsArray=DentistryappintmentDayList[0].map.get(i);
         let arrayLength=SoltsArray!.length;
         for(let j=0;j<arrayLength;j++){
-          if(SoltsArray?.at(j)?.reserved==true){
+          if(SoltsArray?.at(j)?.reserved==false){
             counter++;
           }
         }
-
+        console.log("counter",counter)
         this.dayList.push({day:i,enable:true,availableSlot:counter});
       }
       else{
@@ -115,7 +115,7 @@ this.FullDate=this.months[this.month]+" "+this.year;
         let SoltsArray=DentistryappintmentDayList[0].map.get(i);
         let arrayLength=SoltsArray!.length;
         for(let j=0;j<arrayLength;j++){
-          if(SoltsArray?.at(j)?.reserved==true){
+          if(SoltsArray?.at(j)?.reserved==false){
             counte++;
           }
         }
@@ -164,6 +164,7 @@ Todaydate(){
   this.selectedDay.day=this.today.getDate();
   this.selectedDay.month=this.today.getMonth();
   this.slotList=DentistryappintmentDayList[0].map.get(this.selectedDay.day);
+  this.date="Available appointments on "+this.today.getDate()+", "+this.months[this.month]+", "+this.year;
 }
 
 showNumber(day:any){
