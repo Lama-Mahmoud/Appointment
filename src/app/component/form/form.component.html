@@ -36,7 +36,7 @@
     <br>
     <div class="field">
       <label class="label">Birth Date</label>
-      <input formControlName="birth" type="date" name="birth" required>
+      <input formControlName="birth" type="date" [(ngModel)]="selectedDay" ame="birth" required  >
       <div *ngIf="form.get('birth')?.touched && form.get('birth')?.invalid && form.get('birth')?.errors?.['invalidAge']" class="error-message">
         Invalid age. Age must be between 18 and 100 years.
       </div>
@@ -70,8 +70,8 @@
     </div>
     <br>
     <div class="modal-footer">
-      <button type="submit" class="btn btn-outline-dark" (click)="loginUser($event)" *ngIf="!visible">Ok</button>  
-      <div class="btn-group" *ngIf="visible">
+      <button type="submit" class="btn btn-outline-dark" (click)="loginUser($event)" *ngIf="visible">Ok</button>  
+      <div class="btn-group" *ngIf="!visible">
         <button class="button" (click)="Confirm()">Confirm</button>
         <button class="button" (click)="Unschedule()">Unschedule</button>
       </div> 

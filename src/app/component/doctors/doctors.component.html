@@ -1,0 +1,28 @@
+  <div class="doctors">
+    <div *ngFor="let doctor of doctors" class="doctor" [ngStyle]="getDoctorAvailabilityStyle(doctor)">
+      <div class="doctor-name">{{ doctor.name }}</div>
+      <div class="appointments">
+        <div class="appointment" *ngFor="let timeSlot of getAvailableTimes(doctor)" [ngStyle]="getAppointmentButtonStyle(doctor, timeSlot)">
+          <button  [ngClass]="getAppointmentButtonClass(doctor, timeSlot)">
+            {{ getAppointmentStatus(doctor, timeSlot) }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+   
+  
+  

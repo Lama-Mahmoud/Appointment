@@ -1,0 +1,8 @@
+   <div class="calendar">
+      <div class="current-date">
+    <button (click)="goToPreviousDay()">&lt;</button>
+    {{ currentDate | date: 'MMMM d yyyy' }}
+    <button (click)="goToNextDay()">&gt;</button>
+      </div>
+  </div>
+  

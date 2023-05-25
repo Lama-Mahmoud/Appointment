@@ -1,0 +1,18 @@
+.time-slots 
+{
+    display: flex;
+    flex-direction: column;
+    background-color:#eee;
+    
+}
+  
+.time-slot
+{
+    width: 80px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    background-color:#eee;
+    color:#2F6FB7;
+    font-size: 18px;
+}
+  

@@ -2,6 +2,7 @@ import { Component, Input, OnInit
  } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, ValidationErrors } from '@angular/forms';
 import { ModalDismissReasons, NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-form',
@@ -16,9 +17,10 @@ export class FormComponent implements OnInit{
   visibleButton:boolean = false;
   formDescription:string = 'Appointment Request';
   time="";
+  selectedDay:any=this.datePipe.transform(new Date(),"yyyy-MM-dd");
   isNameTouched: boolean = false;
 
-  constructor(private modal: NgbActiveModal, private fb: FormBuilder) {
+  constructor(private modal: NgbActiveModal, private fb: FormBuilder, private datePipe:DatePipe) {
     this.form = this.fb.group({
       name: ['', [Validators.required, this.customNameValidator.bind(this)]],
       lname: ['', [Validators.required, this.customNameValidator.bind(this)]],

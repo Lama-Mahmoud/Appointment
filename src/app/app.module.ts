@@ -15,6 +15,12 @@ import { MonthlyViewComponent } from './component/monthly-view/monthly-view.comp
 import { WeeklyViewComponent } from './component/weekly-view/weekly-view.component';
 import { WeeklySlotsComponent } from './component/weekly-slots/weekly-slots.component';
 import { PreDayComponent } from './component/pre-day/pre-day.component';
+import { DatePipe } from '@angular/common';
+import { DailyViewComponent } from './component/daily-view/daily-view.component';
+import { CalendarComponent } from './component/calendar/calendar.component';
+import { DoctorsComponent } from './component/doctors/doctors.component';
+import { DoctorsTimeComponent } from './component/doctors-time/doctors-time.component';
+import { TimeSlotsComponent } from './component/time-slots/time-slots.component';
 
 
 @NgModule({
@@ -29,15 +35,21 @@ import { PreDayComponent } from './component/pre-day/pre-day.component';
     DaySlotsComponent,
     WeeklySlotsComponent,
     PreDayComponent,
+    DailyViewComponent,
+    CalendarComponent,
+    DoctorsComponent,
+    DoctorsTimeComponent,
+    TimeSlotsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
