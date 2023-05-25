@@ -2,14 +2,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
   }
   
   .current-date {
     width:99%;
-    height:3vh;
+    height:15vh;
     background-color:#2F6FB7;
-    justify-content:space-around;
+    justify-content:space-between;
     align-items:center;
     text-align:center;
     /* font-weight: bold; */

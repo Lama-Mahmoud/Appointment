@@ -1,8 +1,12 @@
    <div class="calendar">
       <div class="current-date">
-    <button (click)="goToPreviousDay()">&lt;</button>
+    <button (click)="goToPreviousDay()">
+      <i class="fa-solid fa-chevron-left next"></i>
+    </button>
     {{ currentDate | date: 'MMMM d yyyy' }}
-    <button (click)="goToNextDay()">&gt;</button>
+    <button (click)="goToNextDay()">
+      <i class="fa-solid fa-chevron-right next"></i>
+    </button>
       </div>
   </div>
   
